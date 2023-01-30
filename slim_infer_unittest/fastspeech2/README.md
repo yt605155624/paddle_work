@@ -22,4 +22,4 @@ unzip fastspeech2_cnndecoder_csmsc_static_1.4.0.zip
 python3 fastspeech2_unit_test.py
 ```
 - 默认执行非量化模型的 mkldnn-fp32 推理, 执行成功
-- *注释掉 34、35 行代码，并解开 37、38 行代码*后, 执行量化模型的 mkldnn-int8 推理, 推理报错
+- **注释掉 34、35 行代码，并解开 37、38 行代码**后, 执行量化模型的 mkldnn-int8 推理, 推理报错

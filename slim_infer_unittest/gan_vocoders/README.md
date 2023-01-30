@@ -35,9 +35,9 @@ python3 gan_vocoders_unit_test.py
 !! 速度有点慢
 29 行 ~ 37 行对应的代码段
 - 默认执行非量化模型的 mkldnn-fp32 推理, 执行成功
-- *注释掉 33、34 行代码，并解开 36、37 行代码*后, 执行量化模型的 mkldnn-int8 推理, 推理卡死
+- **注释掉 33、34 行代码，并解开 36、37 行代码**后, 执行量化模型的 mkldnn-int8 推理, 推理**卡死**
 
-有报错如下
+另有报错如下, 不知是否有影响
 ```bash
 E0130 14:46:18.929539  3179 analysis_config.cc:678] There are unsupported operators in the configured quantization operator list. The unsupported operator is: conv2d_transpose
 ```
@@ -49,4 +49,4 @@ E0130 14:46:18.929539  3179 analysis_config.cc:678] There are unsupported operat
 52 行 ~ 62 行代码段
 
 - 默认执行非量化模型的 mkldnn-fp32 推理, 执行成功
-- *注释掉 56、57 行代码，并解开 59、60 行代码*后, 执行量化模型的 mkldnn-int8 推理, 推理报错
+- **注释掉 56、57 行代码，并解开 59、60 行代码**后, 执行量化模型的 mkldnn-int8 推理, 推理报错
