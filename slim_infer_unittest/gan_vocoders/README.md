@@ -1,6 +1,6 @@
 ```bash
 # 下载并解压缩输入数据
-wget 
+wget https://paddlespeech.bj.bcebos.com/demos/paddle_work/slim_infer_unittest/gan_vocoders/dump.zip
 unzip dump.zip
 # pwgan
 ## 下载并解压缩未量化模型
@@ -35,7 +35,7 @@ python3 gan_vocoders_unit_test.py
 !! 速度有点慢
 29 行 ~ 37 行对应的代码段
 - 默认执行非量化模型的 mkldnn-fp32 推理, 执行成功
-- **注释掉 33、34 行代码，并解开 36、37 行代码**后, 执行量化模型的 mkldnn-int8 推理, 推理**卡死**
+- **注释掉 33、34 行代码，并解开 36、37 行代码**后, 执行量化模型的 mkldnn-int8 推理, 推理**卡死（其实是巨慢无比）**
 
 另有报错如下, 不知是否有影响
 ```bash
