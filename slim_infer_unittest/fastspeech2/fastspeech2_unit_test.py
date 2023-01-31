@@ -80,7 +80,7 @@ def main():
                 mel = get_am_output(phone_ids=phone_ids, am_predictor=am_predictor)
     print("warm up done!")
 
-    for example in test_dataset:
+    for i, example in enumerate(test_dataset):
         utt_id = example['utt_id']
         phone_ids = example['text']
         with timer() as t:
