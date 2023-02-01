@@ -7,8 +7,9 @@ unzip dump.zip
 # 下载并解压缩未量化模型
 wget https://paddlespeech.bj.bcebos.com/demos/paddle_work/slim_infer_unittest/speedyspeech/speedyspeech_csmsc_static_1.4.0.zip
 unzip speedyspeech_csmsc_static_1.4.0.zip
-# !!量化模型导出报错暂不存在
-
+# 下载并解压缩量化模型（合成结果有问题）
+wget https://paddlespeech.bj.bcebos.com/demos/paddle_work/slim_infer_unittest/speedyspeech/speedyspeech_csmsc_quant.zip
+unzip speedyspeech_csmsc_quant.zip
 ```
 
 执行如下命令进行静态图推理
