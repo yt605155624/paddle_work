@@ -14,7 +14,9 @@ unzip pwgan_csmsc_quant.zip
 ## 下载并解压缩未量化模型
 wget https://paddlespeech.bj.bcebos.com/demos/paddle_work/slim_infer_unittest/gan_vocoders/mb_melgan_csmsc_static_1.4.0.zip
 unzip mb_melgan_csmsc_static_1.4.0.zip
-## !!量化模型导出报错暂不存在
+## 下载并解压缩量化模型
+wget https://paddlespeech.bj.bcebos.com/demos/paddle_work/slim_infer_unittest/gan_vocoders/mb_melgan_csmsc_quant.zip
+unzip mb_melgan_csmsc_quant.zip
 
 # hifigan
 ## 下载并解压缩未量化模型
