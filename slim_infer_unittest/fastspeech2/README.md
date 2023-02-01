@@ -8,8 +8,8 @@ unzip dump.zip
 wget https://paddlespeech.bj.bcebos.com/demos/paddle_work/slim_infer_unittest/fastspeech2/fastspeech2_csmsc_static_1.4.0.zip
 unzip fastspeech2_csmsc_static_1.4.0.zip
 ## 下载并解压缩量化模型（合成结果有问题）
-https://paddlespeech.bj.bcebos.com/demos/paddle_work/slim_infer_unittest/fastspeech2/fastspeech2_csmsc_quant.zip
-unizp fastspeech2_csmsc_quant.zip
+wget https://paddlespeech.bj.bcebos.com/demos/paddle_work/slim_infer_unittest/fastspeech2/fastspeech2_csmsc_quant.zip
+unzip fastspeech2_csmsc_quant.zip
 # fastspeech2_cnndecoder
 ## 下载并解压缩未量化模型
 wget https://paddlespeech.bj.bcebos.com/demos/paddle_work/slim_infer_unittest/fastspeech2/fastspeech2_cnndecoder_csmsc_static_1.4.0.zip
