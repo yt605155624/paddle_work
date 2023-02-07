@@ -1,4 +1,14 @@
 ## FastSpeech2 静态离线量化
+下载数据集
+```bash
+# 下载数据集并解压缩到 ~/datasets/BZNSYP
+# 注意不同模型只需要下载一次
+mkdir -p ~/datasets/BZNSYP
+cd ~/datasets
+wget https://paddlespeech.bj.bcebos.com/datasets/BZNSYP.rar
+unrar x BZNSYP.rar BZNSYP
+```
+
 ```bash
 git clone https://github.com/PaddlePaddle/PaddleSpeech.git
 cd PaddleSpeech/examples/csmsc/tts3
@@ -20,6 +30,7 @@ cp fastspeech2_csmsc_static_1.4.0/* exp/default/inference
 ```text
 ./local/PTQ_static.sh
 ```
+可以修改这个文件的参数来调整静态离线量化的参数，如新增 `--quantizable_op_type "matmul" "matmul_v2"` 控制 quantizable_op_type，默认是使用所有 op_type
 
 python 文件是 
 ```text
