@@ -1,4 +1,6 @@
 ## MB_MelGAN 静态离线量化
+确保已经按照 ../fs2_slim 的 readme 所示下载数据集并解压缩到 ~/datasets/BZNSYP
+
 ```bash
 git clone https://github.com/PaddlePaddle/PaddleSpeech.git
 cd PaddleSpeech/examples/csmsc/voc3
