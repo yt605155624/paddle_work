@@ -20,7 +20,6 @@ def main():
     # model_dir = './speedyspeech_csmsc_quant/speedyspeech_csmsc'
     # precision = 'int8'
     
-
     paddle.enable_static()
     exe = paddle.static.Executor(paddle.CUDAPlace(0))
     [speedyspeech_inference, feed_target_names, fetch_targets] = paddle.static.load_inference_model(model_dir, exe)
@@ -40,6 +39,15 @@ def main():
     output_name = model_name + '_output'
     output_dir = Path(output_name) / precision
     output_dir.mkdir(parents=True, exist_ok=True)
+
+    # warm up
+    for i, example in enumerate(test_dataset):
+        if i <= 3:
+            utt_id = example['utt_id']
+            phone_ids = example['phones']
+            tone_ids = example['tones']
+            mel = exe.run(speedyspeech_inference, feed={feed_target_names[0]:phone_ids, feed_target_names[1]:tone_ids}, fetch_list=fetch_targets)
+    print("warm up done!")
 
     for i, example in enumerate(test_dataset):
         utt_id = example['utt_id']

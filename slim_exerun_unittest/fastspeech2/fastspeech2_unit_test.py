@@ -50,6 +50,14 @@ def main():
     output_dir = Path(output_name) / precision
     output_dir.mkdir(parents=True, exist_ok=True)
 
+    # warm up
+    for i, example in enumerate(test_dataset):
+        if i <= 3:
+            utt_id = example['utt_id']
+            phone_ids = example['text']
+            mel = exe.run(fastspeech2_inference, feed={feed_target_names[0]:phone_ids},fetch_list=fetch_targets)
+    print("warm up done!")
+
     for i, example in enumerate(test_dataset):
         utt_id = example['utt_id']
         phone_ids = example['text']
