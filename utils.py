@@ -12,6 +12,8 @@ from paddle.io import Dataset
 import os
 import paddle
 from paddle import inference
+from paddlelite.lite import create_paddle_predictor
+from paddlelite.lite import MobileConfig
 
 
 class DataTable(Dataset):
@@ -126,8 +128,6 @@ class DataTable(Dataset):
         """
         return len(self.data)
 
-
-
 # inference
 def get_predictor(
         model_dir: Optional[os.PathLike]=None,
@@ -222,3 +222,21 @@ def get_predictor(
 
     predictor = inference.create_predictor(config)
     return predictor
+
+def get_lite_predictor(model_dir: Optional[os.PathLike]=None,
+                       model_file: Optional[os.PathLike]=None,
+                       cpu_threads: int=1):
+    config = MobileConfig()
+    config.set_model_from_file(str(Path(model_dir) / model_file))
+    predictor = create_paddle_predictor(config)
+    return predictor
+
+
+def get_lite_voc_output(voc_predictor, input):
+    mel_handle = voc_predictor.get_input(0)
+    mel_handle.from_numpy(input)
+    voc_predictor.run()
+    voc_output_handle = voc_predictor.get_output(0)
+    wav = voc_output_handle.numpy()
+    return wav
+
