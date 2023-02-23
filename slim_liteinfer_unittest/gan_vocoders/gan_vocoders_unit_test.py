@@ -16,15 +16,16 @@ from utils import get_lite_voc_output
 def main():
     test_metadata = './dump/test/raw/metadata.jsonl'
     
-    '''pwgan
+    # '''pwgan
+    # 修改 x86 为 arm 后在 arm 环境下推理
     model_file = 'pwgan_csmsc_x86.nb'
     ## 非量化
-    # model_dir = './pwgan_csmsc_pdlite_1.4.0'
-    # precision = 'fp32'
+    model_dir = './pwgan_csmsc_pdlite_1.4.0'
+    precision = 'fp32'
     ## 量化
-    model_dir = './pwgan_csmsc_pdlite_quant'
-    precision = 'int8'
-    '''
+    # model_dir = './pwgan_csmsc_pdlite_quant'
+    # precision = 'int8'
+    # '''
 
     ''' mb_melgan
     model_file = 'mb_melgan_csmsc_x86.nb'
@@ -37,7 +38,7 @@ def main():
     
     '''
 
-    # ''' hifigan
+    ''' hifigan
     model_file = 'hifigan_csmsc_x86.nb'
     ## 非量化
     # model_dir = './hifigan_csmsc_pdlite_1.4.0'
@@ -45,7 +46,7 @@ def main():
     ## 量化
     model_dir = './hifigan_csmsc_pdlite_quant'
     precision = 'int8'
-    # '''
+    '''
     
     with jsonlines.open(test_metadata, 'r') as reader:
         metadata = list(reader)

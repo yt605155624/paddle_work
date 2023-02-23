@@ -29,15 +29,15 @@ def get_lite_am_output(
 
 def main():
     test_metadata = './dump/test/norm/metadata.jsonl'
+    # 修改 x86 为 arm 后在 arm 环境下推理
     model_file = 'speedyspeech_csmsc_x86.nb'
     # 非量化模型
-    # model_dir = './speedyspeech_csmsc_pdlite_1.4.0'
-    # precision = 'fp32'
+    model_dir = './speedyspeech_csmsc_pdlite_1.4.0'
+    precision = 'fp32'
     # 量化模型
-    model_dir = './speedyspeech_csmsc_pdlite_quant'
-    precision = 'int8'
+    # model_dir = './speedyspeech_csmsc_pdlite_quant'
+    # precision = 'int8'
     
-
     with jsonlines.open(test_metadata, 'r') as reader:
         metadata = list(reader)
     test_dataset = DataTable(

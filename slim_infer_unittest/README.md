@@ -1,7 +1,3 @@
-fastspeech2 量化报错，暂时不用管
-
-speedyspeech 量化报错，暂时不用管
-
 gan_vocoders 中包含 3 个模型
 - pwgan
 - mb_melgan
