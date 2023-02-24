@@ -19,7 +19,7 @@ def main():
     
     # '''pwgan
     # 修改 x86 为 arm 后在 arm 环境下推理
-    model_file = 'pwgan_csmsc_x86.nb'
+    model_file = 'pwgan_csmsc_arm.nb'
     ## 非量化
     model_dir = './pwgan_csmsc_pdlite_1.4.0'
     precision = 'fp32'
@@ -29,18 +29,18 @@ def main():
     # '''
 
     ''' mb_melgan
-    model_file = 'mb_melgan_csmsc_x86.nb'
+    model_file = 'mb_melgan_csmsc_arm.nb'
     ## 非量化
-    # model_dir = './mb_melgan_csmsc_pdlite_1.4.0'
-    # precision = 'fp32'
+    model_dir = './mb_melgan_csmsc_pdlite_1.4.0'
+    precision = 'fp32'
     ## 量化
-    model_dir = './mb_melgan_csmsc_pdlite_quant'
-    precision = 'int8'
+    # model_dir = './mb_melgan_csmsc_pdlite_quant'
+    # precision = 'int8'
     
     '''
 
     ''' hifigan
-    model_file = 'hifigan_csmsc_x86.nb'
+    model_file = 'hifigan_csmsc_arm.nb'
     ## 非量化
     # model_dir = './hifigan_csmsc_pdlite_1.4.0'
     # precision = 'fp32'
@@ -78,6 +78,10 @@ def main():
         if i <= 3:
             utt_id = example['utt_id']
             mel = example['feats']
+            # to avoid segmentation fault for arm pwgan
+            # 1/4 ok for fp32, 1/7 ok for int8
+            if 'pwgan' in model_file:
+                mel = mel[:mel.shape[0]//7]
             wav = get_lite_voc_output(voc_predictor=voc_predictor, input=mel)
     print("warm up done!")
 
@@ -85,6 +89,10 @@ def main():
         utt_id = example['utt_id']
         mel = example['feats']
         with timer() as t:
+            # to avoid segmentation fault for arm pwgan
+            # 1/4 ok for fp32, 1/7 ok for int8
+            if 'pwgan' in model_file:
+                mel = mel[:mel.shape[0]//7]
             wav = get_lite_voc_output(voc_predictor=voc_predictor, input=mel)
             wav_size = wav.size
             N += wav_size
