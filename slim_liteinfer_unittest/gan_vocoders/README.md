@@ -9,8 +9,8 @@ wget https://paddlespeech.bj.bcebos.com/demos/paddle_work/slim_infer_unittest/ga
 unzip dump.zip
 # pwgan
 ## 下载并解压缩未量化模型
-wget https://paddlespeech.bj.bcebos.com/demos/paddle_work/slim_liteinfer_unittest/gan_vocoders/pwgan_csmsc_pdlite_quant.zip
-unzip pwgan_csmsc_pdlite_quant.zip
+wget https://paddlespeech.bj.bcebos.com/demos/paddle_work/slim_liteinfer_unittest/gan_vocoders/pwgan_csmsc_pdlite_1.4.0.zip
+unzip pwgan_csmsc_pdlite_1.4.0.zip
 ## 下载并解压缩量化模型
 wget https://paddlespeech.bj.bcebos.com/demos/paddle_work/slim_liteinfer_unittest/gan_vocoders/pwgan_csmsc_pdlite_quant.zip
 unzip pwgan_csmsc_pdlite_quant.zip
