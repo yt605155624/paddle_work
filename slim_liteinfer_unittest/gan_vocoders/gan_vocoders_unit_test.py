@@ -5,6 +5,7 @@ from pathlib import Path
 import jsonlines
 import numpy as np
 import paddle
+import soundfile as sf
 from timer import timer
 
 from utils import DataTable
@@ -93,7 +94,7 @@ def main():
         print(
             f"{utt_id}, mel: {mel.shape}, wave: {wav_size}, time: {t.elapse}s, Hz: {speed}, RTF: {rtf}."
         )
-        np.save(output_dir/(utt_id + ".npy"),mel)
+        sf.write(str(output_dir / (utt_id + ".wav")), wav, samplerate=fs)
     print(f"generation speed: {N / T}Hz, RTF: {fs / (N / T) }")
     print(model_name, "lite inference with precision", precision, "success!" )
 
